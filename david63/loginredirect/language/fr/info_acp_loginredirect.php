@@ -48,6 +48,8 @@ $lang = array_merge($lang, array(
 
 	'REDIRECT'								=> 'Redirections après connexion',
 
+	'REDIRECT_ALWAYS'						=> 'Redirection permanente',
+	'REDIRECT_ALWAYS_EXPLAIN'				=> 'Permet de toujours rediriger les utilisateurs vers le sujet spécifié.',
 	'REDIRECT_ANNOUNCE'						=> 'Redirection vers une annonce spécifique',
 	'REDIRECT_ANNOUNCE_EXPLAIN'				=> 'Permet de rediriger tous les utilisateurs ne s’étant pas connectés depuis la publication de la dernière annonce du forum.',
 	'REDIRECT_ANNOUNCE_MESSAGE_EXPLAIN'		=> 'Permet d’afficher un message à l’utilisateur pour l’informer qu’une redirection est en cours vers la dernière annonce publiée.',
@@ -60,6 +62,8 @@ $lang = array_merge($lang, array(
 
 	'REDIRECT_ENABLED'						=> 'Activer les redirections des utilisateurs',
 
+	'REDIRECT_GLOBAL'						=> 'Redirection vers une annonce globale',
+	'REDIRECT_GLOBAL_EXPLAIN'				=> 'Permet de rediriger les utilisateurs vers une annonce globale en lieu et place d’une annonce « normale ».',
 	'REDIRECT_GROUP'						=> 'Redirection vers le sujet de groupe',
 	'REDIRECT_GROUP_ALL'					=> 'Tous les membres des groupes',
 	'REDIRECT_GROUP_ALL_EXPLAIN'			=> 'En paramétrant sur « Oui », tous les groupes seront concernés au lieu du groupe sélectionné ci-dessous.',
@@ -86,5 +90,5 @@ $lang = array_merge($lang, array(
 	'REDIRECT_WELCOME_TOPIC_ID'				=> 'ID du sujet de bienvenue',
 	'REDIRECT_WELCOME_TOPIC_ID_EXPLAIN'		=> 'Permet de saisir l’ID du sujet de bienvenue vers lequel les utilisateurs seront redirigés.',
 
-	'SELECTED'								=> 'Celle sélectionnée',
+	'SELECTED'								=> 'Celle spécifiée',
 ));
