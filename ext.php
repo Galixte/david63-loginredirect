@@ -3,15 +3,17 @@
 *
 * @package User Login Redirect
 * @copyright (c) 2014 david63
-* @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
+* @license GNU General Public License, version 2 (GPL-2.0)
 *
 */
 
 namespace david63\loginredirect;
 
-class ext extends \phpbb\extension\base
+use \phpbb\extension\base;
+
+class ext extends base
 {
-	const LOGIN_REDIRECT_VERSION = '2.1.0';
+	const LOGIN_REDIRECT_VERSION = '2.1.0 RC1';
 
 	/**
 	* Enable extension if phpBB version requirement is met
@@ -22,17 +24,24 @@ class ext extends \phpbb\extension\base
 	* @access public
 	*/
 	public function is_enableable()
-	{
-		$config = $this->container->get('config');
+ 	{
+		// Requires phpBB 3.2.0 or newer.
+		$is_enableable = phpbb_version_compare(PHPBB_VERSION, '3.2.0', '>=');
 
-		if (!phpbb_version_compare($config['version'], '3.2.0-a1', '>='))
+		// Display a custom warning message if requirement fails.
+		if (!$is_enableable)
 		{
-			$this->container->get('language')->add_lang('ext_loginredirect', 'david63/loginredirect');
-			trigger_error($this->container->get('language')->lang('VERSION_32') . adm_back_link(append_sid('index.' . $this->container->getParameter('core.php_ext'), 'i=acp_extensions&amp;mode=main')), E_USER_WARNING);
+			// Need to cater for 3.1 and 3.2
+			if (phpbb_version_compare(PHPBB_VERSION, '3.2.0', '>='))
+			{
+				$this->container->get('language')->add_lang('ext_enable_error', 'david63/loginredirect');
+			}
+			else
+			{
+				$this->container->get('user')->add_lang_ext('david63/loginredirect', 'ext_enable_error');
+			}
 		}
-		else
-		{
-			return true;
-		}
-	}
+
+		return $is_enableable;
+ 	}
 }
